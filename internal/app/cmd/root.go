@@ -6,7 +6,7 @@ import (
 )
 
 func init() {
-	cobra.OnInitialize(init1, init2)
+	cobra.OnInitialize(initConfig, initLog)
 
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.cobra.yaml)")
 	rootCmd.PersistentFlags().StringP("author", "a", "YOUR NAME", "author name for copyright attribution")
@@ -22,7 +22,7 @@ func init() {
 
 var (
 	// Global vars used for flags
-	cfgFile, userLicense string
+	cfgFile, userLicense, log string
 
 	// Root command
 	rootCmd = &cobra.Command{
@@ -36,10 +36,12 @@ func Execute() error {
 	return rootCmd.Execute()
 }
 
-func init1() {
+func initConfig() {
+	cfgFile = "Initiated"
 	return
 }
 
-func init2() {
+func initLog() {
+	log = "Initiated"
 	return
 }
