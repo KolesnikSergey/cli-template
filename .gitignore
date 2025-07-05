@@ -1,0 +1,7 @@
+.vscode/
+.idea/
+
+/.DS_Store
+/simple_cli
+/launch.json
+__*
